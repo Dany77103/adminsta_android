@@ -1,20 +1,39 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class InstitutoActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_instituto)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        val tvResumen = findViewById<TextView>(R.id.tvResumen)
+
+        val shared = getSharedPreferences("AppData", Context.MODE_PRIVATE)
+
+        // Recuperar todos los datos guardados
+        val instituto = shared.getString("instituto", "No definido")
+        val grupo = shared.getString("grupo", "No definido")
+        val curso = shared.getString("curso", "No definido")
+        val materia = shared.getString("materia", "No definido")
+        val horario = shared.getString("horario", "No definido")
+
+        // Crear el texto del resumen
+        val resumen = """
+            📘 Resumen de Datos
+            
+            Instituto: $instituto
+            Grupo: $grupo
+            Curso: $curso
+            Materia: $materia
+            Horario: $horario
+        """.trimIndent()
+
+        // Mostrar en el TextView
+        tvResumen.text = resumen
     }
 }

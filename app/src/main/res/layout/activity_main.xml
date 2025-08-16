@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
+
 
     <!-- Barra superior -->
 
@@ -58,87 +57,46 @@
 
         <Button
             android:id="@+id/btnPerfil"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#000000"
-            android:text="Perfil de usuario"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:paddingVertical="12dp" />
+            android:text="Perfil" />
 
         <Button
             android:id="@+id/btnInstitutos"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#000000"
-            android:paddingVertical="12dp"
-            android:text="Crear institutos"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="Institutos" />
 
         <Button
             android:id="@+id/btnCursos"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#000000"
-            android:paddingVertical="12dp"
-            android:text="Crear Cursos"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="Cursos" />
 
         <Button
             android:id="@+id/btnGrupos"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#000000"
-            android:paddingVertical="12dp"
-            android:text="Crear Grupos"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="Grupos" />
 
         <Button
             android:id="@+id/btnMaterias"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#000000"
-            android:paddingVertical="12dp"
-            android:text="Crear Materias"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="Materias" />
 
         <Button
             android:id="@+id/btnHorario"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#000000"
-            android:paddingVertical="12dp"
-            android:text="Crear Horarios"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="Horario" />
 
         <Button
             android:id="@+id/btnAlta"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#000000"
-            android:paddingVertical="12dp"
-            android:text="Dar de Alta Usuario"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="Alta Usuario" />
+
 
 
     </LinearLayout>

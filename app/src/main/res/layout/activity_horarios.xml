@@ -1,101 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".HorariosActivity">
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
 
     <TextView
-        android:id="@+id/textViewTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Agregar Nuevo Horario"
-        android:textSize="24sp"
+        android:text="Agregar Horario"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="24dp"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldNombreLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
+    <EditText
+        android:id="@+id/etHorario"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="Nombre de la materia/actividad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitulo">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldGrupoLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Grupo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textFieldNombreLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextGrupo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Spinner
-        android:id="@+id/spinnerDia"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:entries="@array/dias_semana"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textFieldGrupoLayout" />
-    <!-- Necesitarás definir el array 'dias_semana' en tu archivo strings.xml -->
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldHoraLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Hora (ej. 10:00 AM)"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerDia">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextHora"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="time" />
-        <!-- Considera usar un TimePicker para una mejor UX -->
-    </com.google.android.material.textfield.TextInputLayout>
+        android:hint="Ejemplo: Lunes 9-11 AM"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginBottom="16dp"/>
 
     <Button
-        android:id="@+id/buttonAgregar"
-        android:layout_width="0dp"
+        android:id="@+id/btnAgregarHorario"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Agregar Horario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textFieldHoraLayout" />
+        android:text="Guardar Horario"
+        android:backgroundTint="#000000"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnVerResumen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Resumen"/>
+</LinearLayout>

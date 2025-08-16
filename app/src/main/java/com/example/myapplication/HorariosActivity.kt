@@ -1,64 +1,40 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.Spinner
+import android.widget.EditText
 import android.widget.Toast
-import androidx.compose.ui.semantics.text
-import com.google.android.material.textfield.TextInputEditText
+import androidx.appcompat.app.AppCompatActivity
 
 class HorariosActivity : AppCompatActivity() {
 
-    private lateinit var editTextNombre: TextInputEditText
-    private lateinit var editTextGrupo: TextInputEditText
-    private lateinit var spinnerDia: Spinner
-    private lateinit var editTextHora: TextInputEditText
-    private lateinit var buttonAgregar: Button
-
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_horarios) // Asegúrate que este sea el nombre de tu archivo XML
+        setContentView(R.layout.activity_horarios) // usa tu layout de horarios
 
-        editTextNombre = findViewById(R.id.editTextNombre)
-        editTextGrupo = findViewById(R.id.editTextGrupo)
-        spinnerDia = findViewById(R.id.spinnerDia)
-        editTextHora = findViewById(R.id.editTextHora)
-        buttonAgregar = findViewById(R.id.buttonAgregar)
+        val etHorario = findViewById<EditText>(R.id.etHorario) // asegúrate que en tu XML exista este id
+        val btnAgregarHorario = findViewById<Button>(R.id.btnAgregarHorario)
+        val btnVerResumen = findViewById<Button>(R.id.btnVerResumen)
 
-        // Configurar el adaptador para el Spinner si no usaste android:entries
-        // ArrayAdapter.createFromResource(
-        //     this,
-        //     R.array.dias_semana,
-        //     android.R.layout.simple_spinner_item
-        // ).also { adapter ->
-        //     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        //     spinnerDia.adapter = adapter
-        // }
+        val shared = getSharedPreferences("AppData", Context.MODE_PRIVATE)
 
-        buttonAgregar.setOnClickListener {
-            val nombre = editTextNombre.text.toString()
-            val grupo = editTextGrupo.text.toString()
-            val diaSeleccionado = spinnerDia.selectedItem.toString()
-            val hora = editTextHora.text.toString()
-
-            if (nombre.isNotEmpty() && grupo.isNotEmpty() && hora.isNotEmpty()) {
-                // Aquí va la lógica para guardar los datos
-                val mensaje = "Horario Agregado: \nNombre: $nombre\nGrupo: $grupo\nDía: $diaSeleccionado\nHora: $hora"
-                Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
-
-                // Limpiar campos después de agregar (opcional)
-                editTextNombre.text?.clear()
-                editTextGrupo.text?.clear()
-                editTextHora.text?.clear()
-                spinnerDia.setSelection(0) // Resetear a la primera opción
+        btnAgregarHorario.setOnClickListener {
+            val horario = etHorario.text.toString().trim()
+            if (horario.isEmpty()) {
+                Toast.makeText(this, "Ingresa un horario válido", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+                shared.edit().putString("horario", horario).apply()
+                Toast.makeText(this, "Horario guardado: $horario", Toast.LENGTH_LONG).show()
+                etHorario.text.clear()
             }
+        }
+
+        // Botón para ir a la pantalla de Resumen
+        btnVerResumen.setOnClickListener {
+            val intent = Intent(this, InstitutoActivity::class.java)
+            startActivity(intent)
         }
     }
 }
-    

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".AltaUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AltaalimnosActivity"
+            android:exported="false" />
+        <activity
             android:name=".HorariosActivity"
             android:exported="false" />
         <activity
